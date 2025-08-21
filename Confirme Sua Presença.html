@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convite de 15 Anos</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #7b2ff7, #eebefd);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .convite {
+      background: rgba(0,0,0,0.5);
+      padding: 30px;
+      border-radius: 20px;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+    }
+
+    h1 {
+      font-size: 2.2em;
+      color: #fff;
+      margin-bottom: 5px;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    p {
+      font-size: 1.1em;
+      margin: 10px 0 20px 0;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      color: #fff;
+      transition: 0.3s;
+    }
+
+    .vou {
+      background-color: #9b59b6;
+    }
+
+    .nao-vou {
+      background-color: #c0c0c0;
+      color: #000;
+    }
+
+    button:hover {
+      opacity: 0.8;
+    }
+
+    .lista {
+      margin-top: 20px;
+      text-align: left;
+      max-height: 150px;
+      overflow-y: auto;
+      background: rgba(255,255,255,0.1);
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    .lista p {
+      margin: 5px 0;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="convite">
+    <h1>🎉 Rhyanna 15 anos 🎉</h1>
+    <p>Você está convidado(a) para a minha festa de 15 anos! 💜✨</p>
+    
+    <input type="text" id="nome" placeholder="Digite seu nome">
+    <br>
+    <button class="vou" onclick="confirmar(true)">Vou!</button>
+    <button class="nao-vou" onclick="confirmar(false)">Não vou 😢</button>
+
+    <div class="lista" id="respostas">
+      <p><strong>Confirmados:</strong></p>
+    </div>
+  </div>
+
+  <script>
+    function confirmar(vai) {
+      const nome = document.getElementById('nome').value.trim();
+      if (!nome) {
+        alert('Por favor, digite seu nome!');
+        return;
+      }
+
+      const respostas = document.getElementById('respostas');
+      const p = document.createElement('p');
+      p.textContent = `${nome} ${vai ? 'vai 🎉' : 'não vai 😢'}`;
+      respostas.appendChild(p);
+
+      document.getElementById('nome').value = '';
+    }
+  </script>
+</body>
+</html>
